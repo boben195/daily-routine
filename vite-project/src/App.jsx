@@ -1,9 +1,10 @@
 import "./App.css";
+import CalendarPage from "./pages/CalendarPage";
 
 function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      <CalendarPage />
     </>
   );
 }
