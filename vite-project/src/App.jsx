@@ -1,11 +1,14 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import CalendarPage from "./pages/CalendarPage";
+import DayView from "./pages/DayView";
 
 function App() {
   return (
-    <>
-      <CalendarPage />
-    </>
+    <Routes>
+      <Route path="/" element={<CalendarPage />} />
+      <Route path="/day/:date" element={<DayView />} />
+    </Routes>
   );
 }
 
