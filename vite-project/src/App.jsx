@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import CalendarPage from "./pages/CalendarPage";
-import DayView from "./pages/DayView";
+import CalendarPage from "./pages/CalendarPage/CalendarPage";
+import DayView from "./pages/DayViewPage/DayView";
 
 function App() {
   return (
