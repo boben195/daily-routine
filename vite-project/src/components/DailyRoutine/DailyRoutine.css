@@ -1,0 +1,26 @@
+.daily-routine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.routine-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.routine-table th,
+.routine-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.routine-table th {
+    background-color: #f0f0f0;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}

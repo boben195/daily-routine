@@ -1,5 +1,6 @@
 import { useState } from "react";
 import React from "react";
+import "./DailyRoutine.css";
 
 const routineTemplate = [
   { time: "06:00 - 07:00", task: "Wake up / morning routine" },
