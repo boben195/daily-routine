@@ -10,11 +10,14 @@ const TodoList = ({ date }) => {
   useEffect(() => {
     const saved = localStorage.getItem(storageKey);
     if (saved) setTasks(JSON.parse(saved));
-  }, [date]);
+  }, [storageKey]);
 
   useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify(tasks));
-  }, [tasks]);
+    if (tasks.length > 0) {
+      localStorage.setItem(storageKey, JSON.stringify(tasks));
+      console.log("💾 Saved to storage:", storageKey, tasks);
+    }
+  }, [tasks, storageKey]);
 
   const addTask = () => {
     if (input.trim() === "") return;
@@ -34,6 +37,7 @@ const TodoList = ({ date }) => {
     updated.splice(index, 1);
     setTasks(updated);
   };
+  console.log("📦 Storage key used:", storageKey);
 
   return (
     <div className="todo-list">
