@@ -4,12 +4,19 @@ import "react-calendar/dist/Calendar.css";
 import { useNavigate } from "react-router-dom";
 import "./CalendarPage.css";
 
+const formatDateLocal = (dateObj) => {
+  const year = dateObj.getFullYear();
+  const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+  const day = String(dateObj.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 const CalendarPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const navigate = useNavigate();
 
   const handleDateClick = (date) => {
-    const formatted = date.toISOString().split("T")[0]; // "YYYY-MM-DD"
+    const formatted = formatDateLocal(date);
     navigate(`/day/${formatted}`);
   };
 
@@ -17,7 +24,10 @@ const CalendarPage = () => {
     <div className="calendar-container">
       <h1>🗓️ My Daily Routine</h1>
       <Calendar
-        onChange={handleDateClick}
+        onChange={(date) => {
+          setSelectedDate(date);
+          handleDateClick(date);
+        }}
         value={selectedDate}
         locale="en-US"
       />
