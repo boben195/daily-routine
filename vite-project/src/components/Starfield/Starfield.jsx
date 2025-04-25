@@ -8,7 +8,6 @@ const Starfield = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    // Fullscreen canvas
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -16,7 +15,6 @@ const Starfield = () => {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
-    // Create stars
     for (let i = 0; i < numStars; i++) {
       stars.push({
         x: Math.random() * canvas.width - centerX,
@@ -55,7 +53,6 @@ const Starfield = () => {
 
     animate();
 
-    // Recalculate on resize
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
