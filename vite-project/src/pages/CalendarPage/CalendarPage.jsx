@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useNavigate } from "react-router-dom";
 import "./CalendarPage.css";
+import Starfield from "../../components/Starfield/Starfield";
 
 const formatDateLocal = (dateObj) => {
   const year = dateObj.getFullYear();
@@ -22,6 +23,7 @@ const CalendarPage = () => {
 
   return (
     <div className="calendar-container">
+      <Starfield />
       <h1>🗓️ My Daily Routine</h1>
       <Calendar
         onChange={(date) => {
