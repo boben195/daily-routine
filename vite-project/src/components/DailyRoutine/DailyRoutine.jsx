@@ -16,6 +16,7 @@ const routineTemplate = [
 
 const DailyRoutine = () => {
   const [checked, setChecked] = useState(routineTemplate.map(() => false));
+  const [showCheckboxes, setShowCheckboxes] = useState(false);
 
   const handleCheckbox = (index) => {
     const updated = [...checked];
@@ -26,12 +27,18 @@ const DailyRoutine = () => {
   return (
     <div className="daily-routine">
       <h2>🧱 Daily Routine</h2>
+      <button
+        onClick={() => setShowCheckboxes(!showCheckboxes)}
+        className="toggle-checkboxes-btn"
+      >
+        {showCheckboxes ? "Hide Checkboxes" : "Show Checkboxes"}
+      </button>
       <table className="routine-table">
         <thead>
           <tr>
             <th>Time</th>
             <th>Activity</th>
-            <th>Done?</th>
+            {showCheckboxes && <th>Done?</th>}
           </tr>
         </thead>
         <tbody>
@@ -39,13 +46,15 @@ const DailyRoutine = () => {
             <tr key={index}>
               <td>{item.time}</td>
               <td>{item.task}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={checked[index]}
-                  onChange={() => handleCheckbox(index)}
-                />
-              </td>
+              {showCheckboxes && (
+                <td className="checkbox-cell">
+                  <input
+                    type="checkbox"
+                    checked={checked[index]}
+                    onChange={() => handleCheckbox(index)}
+                  />
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
